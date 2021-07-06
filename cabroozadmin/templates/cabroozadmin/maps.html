@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Bootstrap Cdn  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+
+    <!--    Font-Awesome cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Maps</title>
+    <style>
+        body{
+            overflow-x: hidden;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+
+    <section>
+        <div class="row">
+            <div class="col-md-2 bg-dark txt_mbl-cntr">
+                <h6 class="mb-3 text-white-50 text-center mt-2">Admin Dashboard</h6>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-dashboard text-white-50 mr-1 my-3 ml-2"></i>
+                        <span class="text-white mr-5">Dashboard</span>
+                    </span>
+                </a>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-send-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Dispatcher Panel</span>
+                    </span>
+                </a>
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-map-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Heat Map</span>
+                    </span>
+                </a> -->
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Member</h6>
+                <a href={% url 'users' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-users text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-5">Users</span>
+                    </span>
+                </a>
+                <a href={% url 'providers' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-microchip text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-4">Providers</span>
+                    </span>
+                </a>
+                <a href={% url 'dispatcher' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-dashcube text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-3">Dispatcher</span>
+                    </span>
+                </a>
+                <a href={% url 'fleetowner' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-foursquare text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-1">Fleet Owner</span>
+                    </span>
+                </a>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-meetup text-white-50 mb-3 ml-1"></i>
+                        <span class="text-white">Account Manager</span>
+                    </span>
+                </a>               
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Accounts</h6>
+                <a href={% url 'statements' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-scribd text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-3">Statements</span>
+                    </span>
+                </a>  
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Details</h6>
+                <a href={% url 'maps' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-globe text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-5">Maps</span>
+                    </span>
+                </a>  
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-star-half-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-3">Rating & Reviews</span>
+                    </span>
+                </a> -->
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Requests</h6>
+                <a href={% url 'reqhistory' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-history text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Request History</span>
+                    </span>
+                </a>
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-steam-square text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Scheduled Rides</span>
+                    </span>
+                </a> -->
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">General</h6>
+                <a href={% url 'servicetype' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-server text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5">Service Types</span>
+                    </span>
+                </a>
+                <a href={% url 'documents' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-files-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-1">Documents</span>
+                    </span>
+                </a>
+                <a href={% url 'promocodes' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-file-code-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Promocodes</span>
+                    </span>
+                </a>
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Payments</h6>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-paypal text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Payment History</span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-md-10 bg-dark">
+                <div class="row bg-white shadow-sm">
+                    <span class="ml-auto p-2 mr-3 h4">
+                        <a href={% url 'Login' %} class="undrline">
+                            <small class="text-success mr-1">{{user.username}}</small>
+                            <i class="fa fa-sign-out text-muted"></i>
+                        </a>
+                    </span>
+                </div>
+
+                <div class="container">
+                    <h4 class="text-left text-muted mb-2 mt-4"> Operational Maps </h4>
+                    <div class="row m-auto">
+                        
+                        <div class="col-md-6 mt-3">
+                            <h6 class="text-danger">Lahore:</h6>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435518.6817844495!2d74.05418787016477!3d31.483220874828167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1624963271967!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <h6 class="text-danger">Islamabad:</h6>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425289.39173893875!2d72.80590770818694!3d33.61637228108822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515c3bdb02b6!2sIslamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1624963326688!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <h6 class="text-danger">Karachi:</h6>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d924234.6303368192!2d66.59494515823904!3d25.193389461148563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1624963456895!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <h6 class="text-danger">Quetta:</h6>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220735.8692434692!2d66.87860042194437!3d30.180052337758504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ed2de34ca7faae9%3A0x4696d44c4b6ff197!2sQuetta%2C%20Balochistan%2C%20Pakistan!5e0!3m2!1sen!2s!4v1624963574323!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    
+                    </div>
+                </div>
+                <footer class="mt-5 w-100 pt-2" style="position: absolute; bottom: 0;">
+                    <p class="text-muted pt-2 px-2 pb-1">&copy; copyright 2021. ZAMH TECHS.</p>
+                </footer>
+            </div>
+            
+        </div>
+
+        
+
+    </section>
+
+
+    
+</body>
+</html>

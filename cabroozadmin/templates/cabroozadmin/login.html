@@ -1,0 +1,49 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Bootstrap Cdn  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--    Font-Awesome cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Login</title>
+    <style>
+        label{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="container mt-5 pt-5">
+            {% for message in messages %}
+                <div class=" w-50 m-auto alert alert-{{message.tags}}">
+                    {{message}}
+                </div>
+            {% endfor %}
+            <div class="row mt-4">
+                <div class="col-md-5 m-auto bg-dark rounded-lg p-5">
+                    <h2 class="text-white mb-3">Login</h2>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                            {{ form|crispy }}
+                            <a href={% url 'register' %}><small class="float-right text-white">Create New Account</small> <br /></a>
+                            <!-- <a href="#"><small class="float-right text-white">Forgot Password?</small> <br /></a> -->
+                        <button class="btn btn-outline-info">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>

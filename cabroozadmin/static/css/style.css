@@ -1,0 +1,76 @@
+
+
+
+/* Dashboard Page styling starts here */
+
+.right-box{
+    padding: 21px;
+    border-bottom-left-radius: 50px 50px;
+    border-bottom-right-radius: -20px -50px;
+    border-top-left-radius: -10px 50px;
+}
+.right-box1{
+  transform: rotate(270deg);
+}
+
+.side_hvr:hover{
+    background-color: rgba(255,255,255,0.1);
+    width: 100%;
+    padding: 4px 55px 3px 6px;
+    transition: 0.5s ease-in-out;
+    text-decoration: none;
+}
+.undrline{
+    text-decoration: none;
+}
+
+
+
+
+@media screen and (min-width: 480px) {
+    
+    /* Dashboard Side bar */
+    .txt_mbl-cntr{
+        /* text-align: center; */
+    }
+}
+
+
+/* Dashboard Page styling ends here */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

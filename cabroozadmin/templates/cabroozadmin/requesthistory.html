@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Bootstrap Cdn  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+
+    <!--    Font-Awesome cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <title>Request History</title>
+    <style>
+        body{
+            overflow-x: hidden;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+
+    <section>
+        <div class="row">
+            <div class="col-md-2 bg-dark txt_mbl-cntr">
+                <h6 class="mb-3 text-white-50 text-center mt-2">Admin Dashboard</h6>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-dashboard text-white-50 mr-1 my-3 ml-2"></i>
+                        <span class="text-white mr-5">Dashboard</span>
+                    </span>
+                </a>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-send-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Dispatcher Panel</span>
+                    </span>
+                </a>
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-map-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Heat Map</span>
+                    </span>
+                </a> -->
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Member</h6>
+                <a href={% url 'users' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-users text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-5">Users</span>
+                    </span>
+                </a>
+                <a href={% url 'providers' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-microchip text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-4">Providers</span>
+                    </span>
+                </a>
+                <a href={% url 'dispatcher' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-dashcube text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-3">Dispatcher</span>
+                    </span>
+                </a>
+                <a href={% url 'fleetowner' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-foursquare text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-1">Fleet Owner</span>
+                    </span>
+                </a>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-meetup text-white-50 mb-3 ml-1"></i>
+                        <span class="text-white">Account Manager</span>
+                    </span>
+                </a>               
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Accounts</h6>
+                <a href={% url 'statements' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-scribd text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-3">Statements</span>
+                    </span>
+                </a>  
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Details</h6>
+                <a href={% url 'maps' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-globe text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-5">Maps</span>
+                    </span>
+                </a>  
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-star-half-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-3">Rating & Reviews</span>
+                    </span>
+                </a> -->
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Requests</h6>
+                <a href={% url 'reqhistory' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-history text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-4">Request History</span>
+                    </span>
+                </a>
+                <!-- <a href="index.html" class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-steam-square text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Scheduled Rides</span>
+                    </span>
+                </a> -->
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">General</h6>
+                <a href={% url 'servicetype' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-server text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5">Service Types</span>
+                    </span>
+                </a>
+                <a href={% url 'documents' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-files-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white mr-5 pr-1">Documents</span>
+                    </span>
+                </a>
+                <a href={% url 'promocodes' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-file-code-o text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Promocodes</span>
+                    </span>
+                </a>
+
+                <h6 class="mb-3 text-white-50 ml-2 mt-3">Payments</h6>
+                <a href={% url 'Home' %} class="side_hvr">
+                    <span class="my-4">
+                        <i class="fa fa-paypal text-white-50 mb-3 ml-2"></i>
+                        <span class="text-white">Payment History</span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-md-10">
+                <div class="row bg-white shadow-sm">
+                    <span class="ml-auto p-2 mr-3 h4">
+                        <a href={% url 'Login' %} class="undrline">
+                            <small class="text-success mr-1">{{user.username}}</small>
+                            <i class="fa fa-sign-out text-muted"></i>
+                        </a>
+                    </span>
+                </div>
+
+                <div class="row">
+                   
+                    <div class="container pr-4 mt-4">
+                        <h4 class="text-left text-muted mb-2 mt-4"> Request History </h4>
+                        <table id="example" class="table table-hover table-striped mb-5 shadow-sm border-bottom table-bordered">
+                            <small><caption>Total No of Users: <span> 903</span></caption></small>
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Booking ID</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Provider Name</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Ammount </th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Payment Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for data in reqhistory%}
+                                <tr>
+                                    <td>{{data.booking_id}}</td>
+                                    <td>{{data.providername}}</td>
+                                    <td>{{data.time}}</td>
+                                    <td>{{data.status}}</td>
+                                    <td>${{data.Amount}}</td>
+                                    <td>{{data.paymentmode}}</td>
+                                    <td>{{data.paymentstatus}}</td>
+                                    <td><img src="" alt="90" /></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                          </table>
+                    </div>
+                   
+                </div>
+
+                <footer class="mt-5 w-100 pt-2" style="position: relative; bottom: 0;">
+                    <p class="text-muted pt-2 px-2 pb-1">&copy; copyright 2021. ZAMH TECHS.</p>
+                </footer>
+            </div>
+            
+        </div>
+
+   
+
+    </section>
+
+
+    <!-- JS and Jquery libs for DAta TAbles -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
+    
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable( {
+                lengthChange: false,
+                buttons: [ 'csv', 'excel', 'pdf', 'colvis' ],
+            } );
+        
+            table.buttons().container()
+                .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+        } );
+    </script>
+
+    
+</body>
+</html>
+
